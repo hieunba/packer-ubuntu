@@ -6,7 +6,7 @@
   "type": "virtualbox-iso",
  "boot_command": [
         "<esc><esc><enter><wait>",
-        "/casper/vmlinuz.efi noapic preseed/file=/preseed/lubuntu.seed <wait>",
+        "/casper/vmlinuz.efi preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
         "hostname={{ .Name }} <wait>",
         "fb=false debconf/frontend=noninteractive <wait>",
@@ -18,6 +18,7 @@
   "iso_url": "{{ user `home` }}/Desktop/lubuntu-17.10-desktop-amd64.iso",
   "iso_checksum": "48703ddd81aab8dce53264cb8a8c5202",
   "iso_checksum_type": "md5",
+  "http_directory": "http",
   "ssh_username": "hieu",
   "ssh_password": "hieu",
   "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
