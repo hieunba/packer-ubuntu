@@ -6,12 +6,12 @@
   "type": "virtualbox-iso",
  "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+        "/casper/vmlinuz.efi noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
         "hostname={{ .Name }} <wait>",
         "fb=false debconf/frontend=noninteractive <wait>",
         "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false <wait>",
-        "initrd=/install/initrd.gz -- <enter><wait>"
+        "initrd=/casper/initrd.lz -- <enter><wait>"
       ],
   "guest_os_type": "Ubuntu_64",
   "iso_url": "{{ user `home` }}/Desktop/lubuntu-17.10-desktop-amd64.iso",
