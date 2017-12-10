@@ -6,7 +6,7 @@
   "type": "virtualbox-iso",
  "boot_command": [
         "<esc><esc><enter><wait>",
-        "/casper/vmlinuz.efi noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+        "/casper/vmlinuz.efi noapic preseed/file=/preseed/lubuntu.seed <wait>",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
         "hostname={{ .Name }} <wait>",
         "fb=false debconf/frontend=noninteractive <wait>",
