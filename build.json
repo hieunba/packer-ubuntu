@@ -11,6 +11,7 @@
         "hostname={{ .Name }} <wait>",
         "fb=false debconf/frontend=noninteractive <wait>",
         "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false <wait>",
+        "boot=casper automatic-ubiquity <wait>",
         "initrd=/casper/initrd.lz -- <enter><wait>"
       ],
   "guest_os_type": "Ubuntu_64",
