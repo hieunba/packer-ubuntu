@@ -3,14 +3,13 @@
      "name": "hieu/ubuntu-1704",
      "build_name": "ubuntu-1704",
      "headless": "true",
-     "iso_url": "http://cdimage.ubuntu.com/lubuntu/releases/17.10/release/lubuntu-17.10-alternate-amd64.iso",
-     "iso_checksum": "4accd1578ae0e46a2bdc64839f3edb0a",
+     "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/17.10/release/ubuntu-17.10-live-server-amd64.iso",
+     "iso_checksum": "67c22be255f5622b0c8d989c2f1e2690",
      "iso_checksum_type": "md5",
      "ssh_username": "vagrant",
      "ssh_password": "vagrant",
      "ssh_timeout": "20m",
-     "guest_os_type": "Ubuntu_64",
-     "home": "{{ env `HOME`}}"
+     "guest_os_type": "Ubuntu_64"
   },
   "builders": [{
   "type": "virtualbox-iso",
@@ -18,12 +17,13 @@
         "<esc><esc><enter><wait>",
         "/install/vmlinuz noapic url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
-        "hostname={{ .Name }} <wait>",
+        "hostname={{ user `build_name` }} <wait>",
         "fb=false debconf/frontend=noninteractive <wait>",
         "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false <wait>",
         "initrd=/install/initrd.gz -- <enter><wait>"
       ],
   "guest_os_type": "{{ user `guest_os_type` }}",
+  "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
   "headless": "{{ user `headless` }}",
   "iso_url": "{{ user `iso_url` }}",
   "iso_checksum": "{{ user `iso_checksum` }}",
@@ -38,7 +38,7 @@
      {
        "type": "vagrant",
        "keep_input_artifact": true,
-       "output": "{{ user `build_name` }}.box"
+       "output": "{{.Provider}}-{{ user `build_name` }}.box"
      }
    ]
 }
