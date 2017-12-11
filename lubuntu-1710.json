@@ -20,7 +20,7 @@
           "<esc><esc><enter><wait>",
           "/install/vmlinuz noapic url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/lubuntu.cfg <wait>",
           "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
-          "hostname={{ user `build_name` }} <wait>",
+          "netcfg/get_hostname={{ user `build_name` }} <wait>",
           "fb=false debconf/frontend=noninteractive <wait>",
           "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false <wait>",
           "initrd=/install/initrd.gz -- <enter><wait>"
