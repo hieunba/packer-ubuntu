@@ -14,8 +14,8 @@
         "initrd=/install/initrd.gz -- <enter><wait>"
       ],
   "guest_os_type": "Ubuntu_64",
-  "iso_url": "{{ user `home` }}/Desktop/lubuntu-17.10-desktop-amd64.iso",
-  "iso_checksum": "48703ddd81aab8dce53264cb8a8c5202",
+  "iso_url": "{{ user `home` }}/Desktop/lubuntu-17.10-alternate-amd64.iso",
+  "iso_checksum": "4accd1578ae0e46a2bdc64839f3edb0a",
   "iso_checksum_type": "md5",
   "ssh_username": "hieu",
   "ssh_password": "hieu",
