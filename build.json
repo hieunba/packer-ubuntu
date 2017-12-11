@@ -4,7 +4,10 @@
      "build_name": "lubuntu-1704",
      "home": "{{ env `HOME`}}",
      "ssh_username": "vagrant",
-     "ssh_password": "vagrant"
+     "ssh_password": "vagrant",
+     "iso_url": "{{ env `HOME` }}/Desktop/lubuntu-17.10-desktop-amd64.iso",
+     "iso_checksum": "48703ddd81aab8dce53264cb8a8c5202",
+     "iso_checksum_type": "md5"
   },
   "builders": [{
   "name": "{{ user `build_name` }}",
@@ -23,9 +26,9 @@
         "initrd=/casper/initrd.lz -- <enter><wait>"
       ],
   "guest_os_type": "Ubuntu_64",
-  "iso_url": "{{ user `home` }}/Desktop/lubuntu-17.10-desktop-amd64.iso",
-  "iso_checksum": "48703ddd81aab8dce53264cb8a8c5202",
-  "iso_checksum_type": "md5",
+  "iso_url": "{{ user `iso_url` }}",
+  "iso_checksum": "{{ user `iso_checksum` }}",
+  "iso_checksum_type": "{{ user `iso_checksum_type` }}",
   "http_directory": "http",
   "ssh_username": "{{ user `ssh_username` }}",
   "ssh_password": "{{ user `ssh_password` }}",
