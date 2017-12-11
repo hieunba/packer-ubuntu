@@ -24,6 +24,7 @@
         "initrd=/install/initrd.gz -- <enter><wait>"
       ],
   "guest_os_type": "{{ user `guest_os_type` }}",
+  "headless": "{{ user `headless` }}",
   "iso_url": "{{ user `iso_url` }}",
   "iso_checksum": "{{ user `iso_checksum` }}",
   "iso_checksum_type": "{{ user `iso_checksum_type` }}",
@@ -37,7 +38,7 @@
      {
        "type": "vagrant",
        "keep_input_artifact": true,
-       "output": "{{.BuildName}}.box"
+       "output": "{{ user `build_name` }}.box"
      }
    ]
 }
